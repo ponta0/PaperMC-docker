@@ -7,3 +7,11 @@ services:
     volumes:
       - ./data:/opt/mc
     restart: always
+  frpc:
+    image: fatedier/frpc:v0.44.0
+    volumes:
+      - ./frpc.ini:/opt/frpc.ini
+    command: -c /opt/frpc.ini
+    restart: always
+    depends_on:
+      - papermc
